@@ -8,7 +8,8 @@ npm run createProj ../addons/ myAddon myA
 ## Addon Structure
 ```
 myaddon
-├── ma-autorun.lua
+├── autorun
+│   └── ma-autorun.lua
 ├── myaddon
 │   ├──  client
 │   │   └── cl_ma_init.lua

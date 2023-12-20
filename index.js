@@ -24,7 +24,8 @@ if (!fs.existsSync(baseaddonsDir)) {
 
 let addonDir = `${baseaddonsDir}/${fullName}`
 let addonLua = `${addonDir}/lua`
-let addonsAutoRun = `${addonDir}/lua/${abbrevName}-autorun.lua`
+let addonAutorun = `${addonLua}/autorun`
+let addonsAutoRun = `${addonAutorun}${abbrevName}-autorun.lua`
 
 let addonDir2 = `${addonDir}/lua/${fullName}`
 let addonClient = `${addonDir2}/client`
@@ -39,10 +40,11 @@ let clientContent = `// Main Client File`
 let serverContent = `// Main Server File`
 let sharedContent = `// Main Shared File`
 
+
 let autorunContent = `${fullName} = ${fullName} or {}
 
 // Load File Function
-function ${fullName}:LoadFile(file)
+function ${fullName}:LoadFile(path)
     local filename = path:GetFileFromFilename();
     filename = filename ~= "" and filename or path;
     local flagCL = filename:StartsWith(filename, "cl_");
